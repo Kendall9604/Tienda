@@ -6,19 +6,24 @@
         <meta name="descriptiont" content="Pagina de la leccion 2" />
         <meta name="keywords" content="html5, css, web, Fidelitas"/>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="css/menu.css" rel="stylesheet" type="text/css"/> 
     </head>
     <body>
         <!-- Esta etiqueta indica al navegador que es un encabezado -->
-        <header id="encabezado">
-            <h1>Tienda Online</h1>
-            <br/>
+        
+        <header class="header">
+            <nav class="nav">
+                <a href="index.html" class="logo nav-link"> TechShop</a>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="Ejemplo9.html">&LeftTriangleBar;</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="Ejemplo2.html">&RightTriangleBar;</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="audios.html">Audios</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="video.html">Videos</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="iframes.html">iFrames</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="formularios.html">Formularios</a></li>
+ </ul>
+            </nav>
         </header>
-        <!-- Esta etiqueta indica al navegador que es un nav -->    
-        <nav id="menu">  
-            <a href="Ejemplo9.html">Atrás</a>
-            <a href="index.html">HOME</a>
-            <a href="Ejemplo2.html">Adelante</a>
-        </nav>
         
         <aside id="barraLateral"> 
             <h2>Productos mas vendidos</h2>
@@ -97,7 +102,7 @@
                 </table>    
             </article>
         </section>
-        <footer id="piePgina">
+        <footer id="piePagina">
             Derechos reservados &COPY; 2023 <address class="lineaDireccion"> Desamparados , San Rafael Arriba</address> <address class="lineaDireccion> Tel: 6678-2211</address>
        </footer>
     </body>
