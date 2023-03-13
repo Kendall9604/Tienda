@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:fragment="header" class="header">
+            <nav class="nav">
+                <a th:href="@{/}" class="logo nav-link">TechShop</a>
+                <ul class="nav-menu">
+                    <ul class="nav-menu">
+                        <li class="nav-menu-item">
+                            <a th:href="@{/cliente/listado}" class="nav-menu-link nav-link">Clientes</a>
+                        </li>                   
+                        <li class="nav-menu-item">
+                            <a th:href="@{/categoria/listado}" class="nav-menu-link nav-link">Categorias</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a th:href="@{/articulo/listado}" class="nav-menu-link nav-link">Articulos</a>
+                        </li>
+                    </ul>
+            </nav>
+        </header>
+
+        <footer th:fragment="footer" class="footer">
+            <p style="font-size: 20px;">&COPY; Derechos Reservados 2023</p>        
+        </footer>
+    </body>
+</html>
+
+
+
+
+

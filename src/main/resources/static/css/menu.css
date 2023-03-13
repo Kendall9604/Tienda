@@ -59,7 +59,30 @@
 }
 
 .nav-menu-link:hover{
+    font-size: 22px;
     background-color:lightskyblue;
-    transition: 0.7s;
+    transition: 1s;
+}
+
+
+.footer {
+    background-color: black;
+    text-align: center;
+    color: white;
+    height: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+}
+
+.contenido {
+    background-color: lavender;
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: auto;
 }
 
