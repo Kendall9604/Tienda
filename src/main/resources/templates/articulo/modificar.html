@@ -1,15 +1,48 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>TODO supply a title</title>
+        <title>TechShop</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div>TODO write content</div>
+        <header th:replace = "layout/plantilla :: header" />
+        <div class="contenido">
+            <h2>Articulos</h2>
+            </br>
+            <a th:href="@{/articulo/listado}">Regresar</a>
+            </br>
+            </br>
+            <form th:action="@{/articulo/guardar}"
+                  method="POST"
+                  th:object="${articulo}">
+                <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/> <!-- tener un id oculto para identificar datos en la tabla--> 
+                <label for="categoria">Categoria</label></br>
+                <select th:field="*{idCategoria}">
+                    <option th:each="categoria: ${categorias}"
+                            th:value="${categoria.idCategoria}"
+                            th:text="${categoria.detalle}"/>
+                </select><br/>
+                <label for="detalle">Descripcion:</label>
+                <input type="text" name="detalle" th:field="*{detalle}"/><br/>
+
+                <label for="detalle">Detalle:</label>
+                <textarea name="detalle" th:field="*{detalle}" rows="6" cols="50"/><br/>
+
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio" th:field="*{precio}"/><br/>
+
+                <label for="existencias">Existencias:</label>
+                <input type="number" name="existencias" th:field="*{existencias}"/><br/>
+
+                <label for="activo">Activo:</label>
+                <input type="checkbox" name="activo" th:field="*{activo}"/><br/>
+
+                <input type="submit" name="guardar" value="Guardar"/>
+            </form>
+        </div>
+
+        <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>
+
