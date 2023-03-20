@@ -35,6 +35,8 @@ public class IndexController {
         return "index";
 
     }
+    
+    
 
 //    @GetMapping("/nuevoCliente")
 //
