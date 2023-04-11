@@ -7,30 +7,35 @@
     <body>
         <header th:replace = "layout/plantilla :: header" />
         <div class="contenido">
-                <h2>Listado de Categoria</h2>
-                <a th:href="@{/categoria/nueva}">Nuevo Articulo</a> <!--@ ruta .. Crear un nuevo cliente en la tabla con algun metodo-->
-                </br>
-                <div th:if="${categorias != null and !articulos.empty}">
-                    <table border="1">
-                        <thead>
-                            <tr>
-                                <th>Descripcion</th>
-                                <th>Activa</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="categoria : ${categorias}">
-                                <td th:text="${categoria.descripcion}"></td>
-                                <td><input type="checkbox" name="activa" th:checked="${categoria.activo}" disabled="true"></td>
-                                <td><a th:href="@{/categoria/eliminar/} + ${categoria.idCategoria}">Delete</a></td>
-                                <td><a th:href="@{/categoria/modificar/} + ${articulo.idCategoria}">Modificar</a></td>
-                        </tbody>
-                    </table>
-                </div>
-                <div th:if="${articulos == null or carticulos.empty}">
-                    La lista de categoria esta vacia...
-                </div> 
+            <h2 th:text="#{categoria.titulo}">Listado de Categoria</h2>
+            </br>
+            <a th:href="@{/categoria/nuevo}">Nueva Categoría</a> <!--@ ruta .. Crear un nuevo cliente en la tabla con algun metodo-->
+            </br>
+            </br>
+            <div th:if="${categorias != null and !categorias.empty}">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th th:text="#{categoria.descripcion}">Descripcion</th>
+                            <th th:text="#{categoria.activo}">Activa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="categoria : ${categorias}">
+                            <td th:text="${categoria.descripcion}"></td>
+                            <td><input type="checkbox" name="activa" th:checked="${categoria.activo}" disabled="true"></td>
+                            <td><a th:href="@{/categoria/eliminar/} + ${categoria.idCategoria}" th:text="#{accion.eliminar}" >Eliminar</a></td>
+                            <td><a th:href="@{/categoria/modificar/} + ${categoria.idCategoria}" th:text="#{accion.actualizar}">Modificar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <div th:if="${articulos == null or articulos.empty}">
+                <p th:text="#{articulo.no_mostrar}"> No hay Articulos  </p>
+            </div> 
+        </div>
+        <div>
             <footer th:replace="layout/plantilla :: footer"/>
+        </div>
     </body>
-</html>
+</html> 

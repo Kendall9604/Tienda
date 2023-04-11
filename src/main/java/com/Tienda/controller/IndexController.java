@@ -5,6 +5,7 @@
 package com.Tienda.controller;
 
 import com.Tienda.domain.Cliente;
+import com.Tienda.service.ArticuloService;
 import com.Tienda.service.ClienteService;
 import java.util.Arrays;
 import java.util.List;
@@ -24,13 +25,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class IndexController {
 
     @Autowired
-    ClienteService clienteService;
+    ArticuloService articuloService;
 
     @GetMapping("/")
     public String page(Model model) {
         log.info("Ahora utilizando MVC");
-        var clientes = clienteService.getClientes();
-        model.addAttribute("clientes", clientes);
+        var articulos = articuloService.getArticulos(true);
+        model.addAttribute("articulos", articulos);
 
         return "index";
 

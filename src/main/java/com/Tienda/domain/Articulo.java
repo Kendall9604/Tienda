@@ -22,6 +22,7 @@ public class Articulo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idArticulo;
     private Long idCategoria;
+    private String descripcion;
     private String detalle;
     private double precio;
     private int existencias;
@@ -30,14 +31,13 @@ public class Articulo {
     public Articulo() {
     }
 
-    public Articulo(Long idCategoria, String detalle, double precio, int existencias, boolean activo) {
+    public Articulo(Long idArticulo, Long idCategoria, String descripcion, String detalle, double precio, int existencias, boolean activo) {
+        this.idArticulo = idArticulo;
         this.idCategoria = idCategoria;
+        this.descripcion = descripcion;
         this.detalle = detalle;
         this.precio = precio;
         this.existencias = existencias;
         this.activo = activo;
     }
-    
-    
-
 }

@@ -13,6 +13,8 @@ public interface ClienteService {
     public void save(Cliente cliente); // Sirve para insertar y modificar un registro
 
     public void delete(Cliente cliente);
+    
+    public List<Cliente> getClienteCorreo(String correo);
 
     public List<Cliente> consulta(String apellidos);
 

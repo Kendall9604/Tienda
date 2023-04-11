@@ -7,6 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
+        <link href="../../static/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:fragment="header" class="header">
@@ -15,20 +16,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <ul class="nav-menu">
                     <ul class="nav-menu">
                         <li class="nav-menu-item">
-                            <a th:href="@{/cliente/listado}" class="nav-menu-link nav-link">Clientes</a>
+                            <a th:href="@{/cliente/listado}" class="nav-menu-link nav-link"
+                               th:text="#{plantilla.clientes}">Clientes</a>
                         </li>                   
                         <li class="nav-menu-item">
-                            <a th:href="@{/categoria/listado}" class="nav-menu-link nav-link">Categorias</a>
+                            <a th:href="@{/categoria/listado}" class="nav-menu-link nav-link"
+                               th:text="#{plantilla.categorias}">Categorias</a>
                         </li>
                         <li class="nav-menu-item">
-                            <a th:href="@{/articulo/listado}" class="nav-menu-link nav-link">Articulos</a>
+                            <a th:href="@{/articulo/listado}" class="nav-menu-link nav-link"
+                               th:text="#{plantilla.articulos}">Articulos</a>
                         </li>
                     </ul>
             </nav>
         </header>
-
         <footer th:fragment="footer" class="footer">
-            <p style="font-size: 20px;">&COPY; Derechos Reservados 2023</p>        
+            <p>&COPY; [[#{plantilla.derechos}]]
+                <a th:href="@{/(lang=es)}">ES</A>
+                <a th:href="@{/(lang=eN)}">EN</A>
+            </p>        
         </footer>
     </body>
 </html>

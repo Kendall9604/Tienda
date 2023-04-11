@@ -13,5 +13,6 @@ import org.springframework.data.repository.CrudRepository;
  * @author Kendall
  */
 public interface ClienteDao extends CrudRepository<Cliente, Long> {
+     List<Cliente> findByCorreo(String correo);
      List<Cliente> findByApellidos(String apellidos);
 }

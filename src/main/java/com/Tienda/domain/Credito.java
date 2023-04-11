@@ -20,7 +20,7 @@ public class Credito implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_credito") //permite indicar cual campo de 
+    @Column(name="id_credito") //permite indicar cual campo se va a mapear
     private Long idCredito; // Transforma en id_Credito
     private double limite;
 

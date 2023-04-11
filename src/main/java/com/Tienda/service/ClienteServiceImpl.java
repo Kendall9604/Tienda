@@ -52,6 +52,11 @@ public class ClienteServiceImpl implements ClienteService{
         return (List<Cliente>) clienteDao.findByApellidos(apellidos);
     }
 
+    @Override
+    public List<Cliente> getClienteCorreo(String correo) {
+        return (List<Cliente>)clienteDao.findByCorreo(correo);
+    }
+
     
     
     
