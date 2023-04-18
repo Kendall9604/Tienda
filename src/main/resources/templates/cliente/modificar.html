@@ -1,44 +1,13 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header th:replace = "layout/plantilla :: header" />
-        <div class="contenido">
-            <h2 th:text="#{cliente.datos}" >Datos del Cliente</h2>
-            </br>
-             </br>
-            <a th:href="@{/cliente/listado}" th:text="#{accion.regresar}">Regresar</a>
-            </br>
-            </br>
-            <form th:action="@{/cliente/guardar}"
-                  method="POST"
-                  th:object="${cliente}">
-                <input type="hidden" name="idCliente" th:field="*{idCliente}"/> <!-- tener un id oculto para identificar datos en la tabla--> 
-                
-                <label for="nombre" th:text="#{cliente.nombre}">Nombre</label></br>
-                <input type="text" name="nombre" th:field="*{nombre}"/></br>
-
-                <label for="apellidos" th:text="#{cliente.apellidos}">Apellidos</label></br>
-                <input type="text" name="apellidos" th:field="*{apellidos}"/></br>
-
-                <label for="correo" th:text="#{cliente.correo}">Correo</label></br>
-                <input type="email" name="correo" th:field="*{correo}"/></br>
-
-                <label for="telefono" th:text="#{cliente.telefono}">Teléfono</label></br>
-                <input type="tel" name="telefono" th:field="*{telefono}"/></br>
-                
-                 <label for="limite" th:text="#{cliente.limite}">Limite de Credito</label></br>
-                <input type="number" name="limite" th:field="*{credito.limite}"/></br>
-
-                <input type="submit" name="guardar" th:value="#{accion.guardar}"/></br>
-
-            </form>
-        </div>
-
-        <footer th:replace="layout/plantilla :: footer"/>
+        <header th:replace="layout/plantilla :: header" />
+        <section th:replace="cliente/fragmentosCliente :: editarCliente"/> 
+        <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>

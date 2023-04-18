@@ -1,48 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    <head th:replace="layout/plantilla :: head">
+        <title>Inicio</title>
     </head>
-    <body>
-        <header th:replace = "layout/plantilla :: header" />
-        <div class="contenido">
-            <h2 th:text="#{cliente.titulo}"> Listado de CLientes</h2>
-            </br>
-            <a th:href="@{/cliente/nuevo}" th:text="#{cliente.nuevo}" >Nuevo Cliente</a> <!--@ ruta .. Crear un nuevo cliente en la tabla con algun metodo-->
-            </br>
-            </br>
-            <div th:if="${clientes != null and !clientes.empty}">
-                <table border="1">
-                    <thead>
-                    <th th:text="#{cliente.nombre}">Nombre</th>
-                    <th th:text="#{cliente.apellidos}">Apellidos</th>
-                    <th th:text="#{cliente.correo}">Correo</th>
-                    <th th:text="#{cliente.telefono}">Teléfono</th>
-                    <th th:text="#{cliente.limite}">Limite</th>
-                    <th th:text="#{accion.actualizar}">Actualizar/th>
-                    <th th:text="#{accion.eliminar}">Eliminar/th>
-                        </thead> 
-                    <tbody>
-                        <tr th:each="cliente : ${clientes}">
-                            <td th:text="${cliente.nombre}"></td>
-                            <td th:text="${cliente.apellidos}"></td>
-                            <td th:text="${cliente.correo}"></td>
-                            <td th:text="${cliente.telefono}"></td>
-                            <td th:text="${#numbers.formatDecimal(cliente.credito.limite, 3, 2)}"></td>
-                            <td><a th:href="@{/cliente/modificar/} + ${cliente.idCliente}" th:text="#{accion.actualizar}">Modificar</a></td>
-                            <td><a th:href="@{/cliente/eliminar/} + ${cliente.idCliente}" th:text="#{accion.eliminar}">Delete</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div th:if="${articulos == null or articulos.empty}">
-                <p th:text="#{articulo.no_mostrar}"> No hay Articulos  </p>
-            </div>
-        </div>  
-        <div>
-            <footer th:replace="layout/plantilla :: footer"/>
-        </div>
-    </body>
+    <header th:replace="layout/plantilla :: header" />
+
+    <section th:replace="cliente/fragmentosCliente :: botonesAgregar"/>
+    <section th:replace="cliente/fragmentosCliente :: agregarCliente"/>
+    <section th:replace="cliente/fragmentosCliente :: listadoClientes"/>
+
+    <footer th:replace="layout/plantilla :: footer" />
+
 </html>
